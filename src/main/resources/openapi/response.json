@@ -1,0 +1,14 @@
+{
+  "successRequest": {
+    "code": 200,
+    "success": true,
+    "message": "Successful",
+    "data": {}
+  },
+  "failedRequest": {
+    "success": false,
+    "message": "Error Message",
+    "data": {}
+  }
+
+}
