@@ -29,18 +29,18 @@ Or
 
 > **http://localhost:8080/swagger-ui/index.html**
 
-![Screenshot showing OpenApi](src/main/resources/static/api_doc.png "Screenshot showing OpenApi")
+![Screenshot showing OpenApi](screenshots/api_doc.png "Screenshot showing OpenApi")
 
 ---
 **Connect with me :**
+
+* [Portfolio](https://www.janteadebowale.com)
+* [Youtube](https://www.youtube.com/@jante-adebowale)
+* [LinkedIn](https://www.linkedin.com/in/jante-adebowale)
+* [Github](https://github.com/jante-adebowale)
+
 <p >
-  <a href="https://www.youtube.com/@jante-adebowale"><img alt="Youtube" src="src/main/resources/static/youtube.svg"/></a>
-  <a href="https://www.linkedin.com/in/jante-adebowale"><img alt="LinkedIn" src="src/main/resources/static/linkedin.svg"/></a> 
-  <a href="https://www.janteadebowale.com"><img alt="Portfolio" src="src/main/resources/static/portfolio.svg"/></a>
+  <a href="https://www.youtube.com/@jante-adebowale"><img alt="Youtube" src="screenshots/youtube.svg"/></a>
+  <a href="https://www.linkedin.com/in/jante-adebowale"><img alt="LinkedIn" src="screenshots/linkedin.svg"/></a> 
+  <a href="https://www.janteadebowale.com"><img alt="Portfolio" src="screenshots/portfolio.svg"/></a>
 </p>
-
-
-
-
-
-
