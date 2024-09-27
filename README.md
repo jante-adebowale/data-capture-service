@@ -29,7 +29,7 @@ Or
 
 > **http://localhost:8080/swagger-ui/index.html**
 
-![Screenshot showing OpenApi](screenshots/api_doc.png "Screenshot showing OpenApi")
+![Screenshot showing OpenApi](https://github.com/jante-adebowale/data-capture-service/blob/master/src/main/resources/static/api_doc.png?raw=true "Screenshot showing OpenApi")
 
 ---
 **Connect with me :**
@@ -40,7 +40,13 @@ Or
 * [Github](https://github.com/jante-adebowale)
 
 <p >
-  <a href="https://www.youtube.com/@jante-adebowale"><img alt="Youtube" src="screenshots/youtube.svg"/></a>
-  <a href="https://www.linkedin.com/in/jante-adebowale"><img alt="LinkedIn" src="screenshots/linkedin.svg"/></a> 
-  <a href="https://www.janteadebowale.com"><img alt="Portfolio" src="screenshots/portfolio.svg"/></a>
+  <a href="https://www.youtube.com/@jante-adebowale"><img alt="Youtube" src="https://github.com/jante-adebowale/data-capture-service/blob/master/src/main/resources/static/youtube.svg?raw=true"/></a>
+  <a href="https://www.linkedin.com/in/jante-adebowale"><img alt="LinkedIn" src="https://github.com/jante-adebowale/data-capture-service/blob/master/src/main/resources/static/linkedin.svg?raw=true"/></a> 
+  <a href="https://www.janteadebowale.com"><img alt="Portfolio" src="https://github.com/jante-adebowale/data-capture-service/blob/master/src/main/resources/static/portfolio.svg?raw=true"/></a>
 </p>
+
+
+
+
+
+
