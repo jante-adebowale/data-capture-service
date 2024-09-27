@@ -1,5 +1,6 @@
 package com.janteadebowale.data_capture_api.config;
 
+import com.janteadebowale.data_capture_api.service.impl.LogoutServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -22,7 +23,7 @@ import java.util.Arrays;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.config
  **********************************************************/
 
@@ -40,12 +41,13 @@ public class SecurityConfiguration {
             "/swagger-ui/**",
             "/webjars/**",
             "/swagger-ui.html",
+            "/swagger-ui-custom.html",
             "/","/api/v2/spans"};
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
 
-    public SecurityConfiguration(JwtAuthenticationFilter jwtAuthenticationFilter, AuthenticationProvider authenticationProvider, LogoutService logoutHandler) {
+    public SecurityConfiguration(JwtAuthenticationFilter jwtAuthenticationFilter, AuthenticationProvider authenticationProvider, LogoutServiceImpl logoutHandler) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
         this.authenticationProvider = authenticationProvider;
         this.logoutHandler = logoutHandler;

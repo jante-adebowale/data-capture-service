@@ -22,18 +22,18 @@ import org.springframework.http.MediaType;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.config
  **********************************************************/
 
 @OpenAPIDefinition(
         info = @Info(
                 contact = @Contact(
-                        name = "Data Capture Backend Service",
+                        name = "Jante Adebowale",
                         email = "jante.adebowale@gmail.com",
                         url = "https://janteadebowale.com"
                 ),
-                description = "Documentation for Data Capture Application",
+                description = "Backend Service for Android Data Capture Application",
                 title = "Data Capture Api",
                 version = "1.0"
 

@@ -14,7 +14,7 @@ import java.util.Optional;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.repository
  **********************************************************/
 @Repository
@@ -62,19 +62,7 @@ public class TokenRepository {
             return Optional.empty();
         }
     }
-
-    public Optional<Token> getTokenByUserId(String userId) {
-        try {
-            String selectQuery = "SELECT id,refresh_token,token,user_id,expired,revoked,logout FROM access_token WHERE user_id = ? AND expired = ? AND revoked = ?";
-            var token = jdbcTemplate.queryForObject(selectQuery, (rs, rowNum) ->
-                            new Token(rs.getInt("id"), rs.getString("user_id"), rs.getString("token"), rs.getString("refresh_token"), rs.getBoolean("expired"), rs.getBoolean("revoked"), rs.getBoolean("logout"))
-                    , userId,false,false);
-            return Optional.ofNullable(token);
-        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
-            return Optional.empty();
-        }
-    }
-
+    
     public Boolean isRefreshTokenValid(String refreshToken,String userId) {
         String countQuery = "SELECT count(id) FROM access_token WHERE refresh_token = ? AND user_id = ?";
         Integer count = jdbcTemplate.queryForObject(countQuery, Integer.class, refreshToken,userId);

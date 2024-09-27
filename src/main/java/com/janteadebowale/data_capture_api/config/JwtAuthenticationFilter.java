@@ -2,7 +2,7 @@ package com.janteadebowale.data_capture_api.config;
 
 import com.janteadebowale.data_capture_api.model.Token;
 import com.janteadebowale.data_capture_api.repository.TokenRepository;
-import com.janteadebowale.data_capture_api.service.JwtService;
+import com.janteadebowale.data_capture_api.service.impl.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +24,7 @@ import java.util.Optional;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.config
  **********************************************************/
 @Component

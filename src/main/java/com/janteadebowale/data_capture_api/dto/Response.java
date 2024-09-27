@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Author    : Jante Adebowale
  * Date      : 08/09/2024
  * Time      : 18:43
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.dto
  **********************************************************/
 @JsonPropertyOrder({"success,message,data"})

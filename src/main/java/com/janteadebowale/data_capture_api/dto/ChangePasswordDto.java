@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotBlank;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.dto
  **********************************************************/
 public class ChangePasswordDto {

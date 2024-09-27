@@ -1,7 +1,7 @@
-package com.janteadebowale.data_capture_api.service;
+package com.janteadebowale.data_capture_api.dto;
 
-import com.janteadebowale.data_capture_api.dto.*;
-import com.janteadebowale.data_capture_api.exception.AccessDeniedException;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 /************************************************************
  2024 Copyright (C), JTA                                         
@@ -12,9 +12,16 @@ import com.janteadebowale.data_capture_api.exception.AccessDeniedException;
  * Youtube   : https://www.youtube.com/@jante-adebowale
  * Github    : https://github.com/jante-adebowale
  ************************************************************/
-public interface AuthService {
-    Response authenticate(AuthenticationRequest authenticationRequest);
-    AccessTokenResponse refreshAccessToken(AccessTokenRequest accessTokenRequest) throws AccessDeniedException;
-    Response changePassword(ChangePasswordDto changePassword);
+public class LogoutRequest {
+    @NotBlank(message = "Token can't be empty")
+    @NotNull(message = "Token can't be empty")
+    private String accessToken;
 
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
 }

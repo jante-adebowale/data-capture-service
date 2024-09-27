@@ -1,14 +1,21 @@
 package com.janteadebowale.data_capture_api.controller;
 
+import com.janteadebowale.data_capture_api.service.AuthService;
+import com.janteadebowale.data_capture_api.service.impl.LogoutServiceImpl;
 import com.janteadebowale.data_capture_api.dto.*;
 import com.janteadebowale.data_capture_api.exception.AccessDeniedException;
-import com.janteadebowale.data_capture_api.service.AuthService;
+import com.janteadebowale.data_capture_api.service.impl.AuthServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.controller
  **********************************************************/
 @RestController
@@ -25,13 +32,14 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Auth")
 public class AuthController {
     private final AuthService authService;
+    private final LogoutServiceImpl authenticationService;
 
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, LogoutServiceImpl authenticationService) {
         this.authService = authService;
+        this.authenticationService = authenticationService;
     }
 
     @Operation(
-            description = "Auth",
             summary = "User login"
     )
     @PostMapping()
@@ -52,7 +60,6 @@ public class AuthController {
     }
 
     @Operation(
-            description = "Auth",
             summary = "Refresh user access token"
     )
     @PostMapping("/refresh-token")
@@ -68,8 +75,7 @@ public class AuthController {
     }
 
     @Operation(
-            description = "Auth",
-            summary = "This is used to change user's password"
+            summary = "Change user's password"
     )
     @PostMapping("/change-password")
     public ResponseEntity<Response> changePassword(@io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(
@@ -81,6 +87,17 @@ public class AuthController {
             }
     )) @Valid @RequestBody ChangePasswordDto changePassword) {
         return ResponseEntity.ok(authService.changePassword(changePassword));
+    }
+
+    @PostMapping(value = "/logout", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Logout")
+    @ApiResponses(value = {
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "logout successfully", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ApiResponse.class))})
+    })
+    public ResponseEntity<Response> logout(HttpServletRequest request, @RequestBody @Valid LogoutRequest logoutRequest) {
+        authenticationService.logout(request,null,null);
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).build();
     }
 
 }

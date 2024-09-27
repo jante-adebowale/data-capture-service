@@ -1,4 +1,4 @@
-package com.janteadebowale.data_capture_api.service;
+package com.janteadebowale.data_capture_api.service.impl;
 
 import com.janteadebowale.data_capture_api.model.User;
 import com.janteadebowale.data_capture_api.util.DataCaptureUtil;
@@ -22,7 +22,7 @@ import java.util.function.Function;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.service
  **********************************************************/
 @Service
@@ -76,19 +76,19 @@ public class JwtService {
 
 
 
-    public String generateToken(Map<String, Object> extrClaims, UserDetails userDetails) {
-        return buildToken(extrClaims,userDetails,accessTokenExpiration);
+    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+        return buildToken(extraClaims,userDetails,accessTokenExpiration);
     }
 
     public String generateRefreshToken( UserDetails userDetails) {
         return buildToken(new HashMap<>(),userDetails,refreshTokenExpiration);
     }
 
-    public String buildToken(Map<String, Object> extrClaims, UserDetails userDetails,int expiration){
+    public String buildToken(Map<String, Object> extraClaims, UserDetails userDetails,int expiration){
         Date expirationTime = DataCaptureUtil.createLifeSpanFromNowInSeconds(expiration);
         return Jwts
                 .builder()
-                .setClaims(extrClaims)
+                .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(DataCaptureUtil.getCurrentDate("Africa/Lagos"))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)

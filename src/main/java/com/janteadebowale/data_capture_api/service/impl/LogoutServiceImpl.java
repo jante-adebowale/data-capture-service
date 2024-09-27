@@ -1,4 +1,4 @@
-package com.janteadebowale.data_capture_api.config;
+package com.janteadebowale.data_capture_api.service.impl;
 
 import com.janteadebowale.data_capture_api.repository.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.config
  **********************************************************/
 @Service
-public class LogoutService implements LogoutHandler {
+public class LogoutServiceImpl implements LogoutHandler {
     private final TokenRepository tokenRepository;
 
-    public LogoutService(TokenRepository tokenRepository) {
+    public LogoutServiceImpl(TokenRepository tokenRepository) {
         this.tokenRepository = tokenRepository;
     }
     @Override

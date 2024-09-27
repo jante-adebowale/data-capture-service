@@ -2,7 +2,7 @@ package com.janteadebowale.data_capture_api.controller;
 
 import com.janteadebowale.data_capture_api.dto.AddCaptureDto;
 import com.janteadebowale.data_capture_api.dto.Response;
-import com.janteadebowale.data_capture_api.service.CaptureService;
+import com.janteadebowale.data_capture_api.service.impl.CaptureServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -15,22 +15,21 @@ import org.springframework.web.bind.annotation.*;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.controller
  **********************************************************/
 @RestController
 @RequestMapping("/api/captures")
 @Tag(name = "Data Capture")
 public class CaptureController {
-    private final CaptureService captureService;
+    private final CaptureServiceImpl captureService;
 
-    public CaptureController(CaptureService captureService) {
+    public CaptureController(CaptureServiceImpl captureService) {
         this.captureService = captureService;
     }
 
     @Operation(
-            description = "Capture",
-            summary = "This is used to upload capture"
+            summary = "Upload captured data"
     )
     @PostMapping()
     public ResponseEntity<Response> addCapture(@io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(
@@ -40,8 +39,7 @@ public class CaptureController {
     }
 
     @Operation(
-            description = "Capture",
-            summary = "This is used to capture analytics"
+            summary = "Uploaded data analytics"
     )
     @GetMapping("/analytics")
     public ResponseEntity<Response> getAnalytic() {
@@ -49,8 +47,7 @@ public class CaptureController {
     }
 
     @Operation(
-            description = "Capture",
-            summary = "This is used to captures"
+            summary = "Query approved/rejected upload data"
     )
     @GetMapping
     public ResponseEntity<Response> getCaptures(@RequestParam("status") String status) {

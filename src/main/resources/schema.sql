@@ -15,13 +15,11 @@ CREATE TABLE IF NOT EXISTS access_token
     id            serial primary key,
     token         text not null,
     refresh_token text ,
-    secret_key character varying(30) ,
-    initial_vector text ,
-    hash_key character varying(32),
     user_id       character varying(50) NOT NULL,
     expired       boolean default false,
     revoked       boolean default false,
     logout        boolean default false,
+    logout_date    timestamp without time zone,
     expiry_date    timestamp without time zone
 );
 

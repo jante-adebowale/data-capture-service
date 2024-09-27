@@ -13,7 +13,7 @@ import java.util.TimeZone;
  * Author    : Jante Adebowale
  * Date      : 08/09/2024
  * Time      : 18:41
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.util
  **********************************************************/
 public class DataCaptureUtil {

@@ -2,7 +2,7 @@ package com.janteadebowale.data_capture_api.controller;
 
 import com.janteadebowale.data_capture_api.dto.SignupDto;
 import com.janteadebowale.data_capture_api.dto.Response;
-import com.janteadebowale.data_capture_api.service.SignupService;
+import com.janteadebowale.data_capture_api.service.impl.SignupServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,22 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
  https://www.janteadebowale.com | jante.adebowale@gmail.com                                     
  **********************************************************
  * Author    : Jante Adebowale
- * Project   : data-capture-api
+ * Project   : data-capture-service
  * Package   : com.janteadebowale.data_capture_api.controller
  **********************************************************/
 @RestController
 @RequestMapping("/api/signup")
 @Tag(name = "Signup")
 public class SignupController {
-    private final SignupService signupService;
+    private final SignupServiceImpl signupService;
 
-    public SignupController(SignupService signupService) {
+    public SignupController(SignupServiceImpl signupService) {
         this.signupService = signupService;
     }
 
     @Operation(
-            description = "Signup",
-            summary = "This is used to register new user"
+            summary = "Signup user"
     )
     @PostMapping()
     public ResponseEntity<Response> signup(@io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(
